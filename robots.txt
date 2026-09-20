@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://us-fragrance-finder.enjoy-onepage.com/sitemap.xml
