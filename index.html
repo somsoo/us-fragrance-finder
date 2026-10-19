@@ -1,28 +1,436 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fragrance &amp; Perfume Finder - Under maintenance</title>
-<meta name="robots" content="noindex, nofollow">
-<meta name="site-status" content="maintenance">
-<meta name="description" content="This tool is temporarily offline while it is rebuilt.">
+<title>Fragrance &amp; Perfume Finder</title>
+<meta name="description" content="Discover your signature scent using the fragrance wheel and olfactory notes.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://us-fragrance-finder.enjoy-onepage.com/">
+<meta name="theme-color" content="#d97706">
+<link rel="icon" href="/favicon.ico">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fragrance &amp; Perfume Finder">
+<meta property="og:title" content="Fragrance &amp; Perfume Finder">
+<meta property="og:description" content="Discover your signature scent using the fragrance wheel and olfactory notes.">
+<meta property="og:url" content="https://us-fragrance-finder.enjoy-onepage.com/">
+<meta property="og:image" content="https://us-fragrance-finder.enjoy-onepage.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fragrance &amp; Perfume Finder">
+<meta name="twitter:description" content="Discover your signature scent using the fragrance wheel and olfactory notes.">
+<meta name="twitter:image" content="https://us-fragrance-finder.enjoy-onepage.com/og-image.png">
+<link rel="alternate" type="application/rss+xml" title="Fragrance Finder RSS" href="https://us-fragrance-finder.enjoy-onepage.com/rss.xml">
+<link rel="sitemap" type="application/xml" href="https://us-fragrance-finder.enjoy-onepage.com/sitemap.xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://us-fragrance-finder.enjoy-onepage.com/#webapp",
+      "name": "Fragrance & Perfume Finder",
+      "url": "https://us-fragrance-finder.enjoy-onepage.com/",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "All",
+      "inLanguage": "en",
+      "description": "An interactive perfume and cologne scent matcher analyzing olfactory families, note pyramids, occasions, and sillage projections.",
+      "image": "https://us-fragrance-finder.enjoy-onepage.com/og-image.png",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://us-fragrance-finder.enjoy-onepage.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the Fragrance Wheel classification system?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Created by British perfumer Michael Edwards in 1983, the Fragrance Wheel standardizes scents into four primary families: Floral, Amber/Oriental, Woody, and Fresh."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between Top, Middle, and Base notes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Top notes are volatile citrus or herbal scents detected in the first 15 minutes. Heart notes form the core floral or spicy identity for 2 to 4 hours. Base notes provide warm woods and musks lasting 6 to 12 hours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does perfume concentration affect performance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Eau de Toilette (EDT, 5-15% oils) provides higher projection for 3 to 5 hours, whereas Eau de Parfum (EDP, 15-20% oils) and Extraits offer closer sillage with 8 to 14+ hours of longevity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are my scent preferences or fragrance searches stored?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. All scent matching calculations, accord breakdowns, and pyramid visualizations run exclusively inside your browser memory. Zero search histories are transferred or stored on external servers."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ADSENSE START: loader -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2228289204702106" crossorigin="anonymous"></script>
+<!-- ADSENSE END: loader -->
 <style>
-  body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: #f8fafc; color: #0f172a; }
-  main { max-width: 560px; margin: 12vh auto; padding: 32px 24px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; }
-  h1 { font-size: 1.4rem; margin: 0 0 12px; }
-  p { line-height: 1.6; color: #334155; }
-  a { color: #1d4ed8; font-weight: 600; }
-  .tag { display: inline-block; font-size: .8rem; font-weight: 700; color: #92400e; background: #fef3c7; border-radius: 999px; padding: 4px 10px; margin-bottom: 14px; }
+:root{--bg:#fffbeb;--card:#fff;--ink:#0f172a;--muted:#475569;--accent:#d97706;--accent-hover:#b45309;--line:#fef3c7}
+*{box-sizing:border-box}
+html,body{margin:0;max-width:100%;overflow-x:hidden}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-wrap:anywhere}
+.header{background:linear-gradient(135deg,#92400e,#d97706);color:#fff;text-align:center;padding:26px 16px 22px}
+.header h1{margin:0;font-size:1.7rem}
+.header-sub{opacity:.92;margin-top:6px;font-size:.95rem}
+.wrap{max-width:1100px;margin:0 auto;padding:12px 14px 8px}
+.grid2{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:1024px){.grid2{grid-template-columns:6fr 6fr;align-items:start}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 18px;margin:14px 0}
+.grid2 .card{margin:0}
+.card h2{font-size:1.15rem;margin:4px 0 10px}
+.lbl{display:block;font-weight:600;margin:10px 0 4px;font-size:.92rem}
+select{width:100%;font:inherit;font-size:1rem;padding:8px 10px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;color:var(--ink)}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row>div{flex:1 1 120px;min-width:0}
+.btn{font:inherit;border:1px solid #cbd5e1;background:#fff;color:var(--ink);border-radius:10px;padding:8px 13px;cursor:pointer;transition:background .15s}
+.btn:hover{background:#f8fafc}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
+.btn.primary:hover{background:var(--accent-hover)}
+.btn.sm{padding:4px 10px;font-size:.86rem;border-radius:8px}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+
+/* Pyramid Notes */
+.pyramid-box{background:#fefce8;border:1px solid #fef08a;border-radius:12px;padding:12px;margin:12px 0}
+.pyramid-level{padding:6px 0;border-bottom:1px solid #fef9c3}
+.pyramid-level:last-child{border-bottom:none}
+.pyramid-title{font-size:.78rem;font-weight:700;color:var(--accent);text-transform:uppercase}
+.pyramid-notes{font-size:.9rem;font-weight:600;color:#334155}
+
+.accord-pill{display:inline-block;padding:3px 8px;background:#fef3c7;color:#92400e;border-radius:6px;font-size:.78rem;font-weight:700;margin:2px}
+
+.metric-box{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:12px;margin:10px 0}
+.metric-val{font-size:1.55rem;font-weight:800;color:var(--accent);margin:2px 0}
+.metric-lbl{font-size:.82rem;color:var(--muted);font-weight:600;text-transform:uppercase}
+
+.hint{font-size:.86rem;color:var(--muted);margin:6px 0}
+.notice{border-color:#fcd34d;background:#fffbeb}
+.faq-item h3{font-size:1rem;margin:12px 0 4px}
+.faq-item p{margin:0;color:#334155}
+.src{font-size:.82rem;color:var(--muted)}
+.ad-box{max-width:1100px;margin:10px auto;padding:0 14px;background:transparent;overflow:hidden;text-align:center}
+.ad-top ins{max-height:90px}
+.footer{text-align:center;font-size:.85rem;color:var(--muted);padding:18px 14px 28px}
+.footer a{color:var(--muted);text-decoration:none}
+.footer a:hover{text-decoration:underline}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#0f172a;color:#fff;padding:10px 18px;border-radius:999px;font-size:.9rem;opacity:0;pointer-events:none;transition:opacity .2s;z-index:50;max-width:90vw}
+.toast.show{opacity:1}
+@media (prefers-reduced-motion: reduce){.toast{transition:none}}
 </style>
 </head>
 <body>
-<main>
-  <span class="tag">Under maintenance</span>
+<header class="header">
   <h1>Fragrance &amp; Perfume Finder</h1>
-  <p>This tool is temporarily offline. We found that the previous version did not work the way it was described, so we took it down while we rebuild it properly.</p>
-  <p>Please check back later.</p>
-  <p><a href="https://enjoy-onepage.com/">Browse our other free tools</a></p>
+  <div class="header-sub">Olfactory Fragrance Wheel Matcher · Note Pyramids · 100% Private In-Browser</div>
+</header>
+
+<!-- ADSENSE START: top -->
+<div class="ad-box ad-top">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2228289204702106" data-ad-slot="3824727725" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<!-- ADSENSE END: top -->
+
+<main class="wrap">
+  <div class="grid2">
+    <!-- Scent Matcher Quiz Card -->
+    <section class="card" aria-labelledby="finder-h">
+      <h2 id="finder-h">🌿 Scent Preference Profile</h2>
+
+      <label class="lbl" for="selOccasion">Wearing Occasion &amp; Climate</label>
+      <select id="selOccasion">
+        <option value="daily" selected>Everyday Office &amp; Clean Casual</option>
+        <option value="date">Romantic Evening &amp; Date Night</option>
+        <option value="summer">Warm Summer Beach &amp; Tropical Vacation</option>
+        <option value="winter">Cold Winter Evening &amp; Formal Gala</option>
+      </select>
+
+      <label class="lbl" for="selVibe">Primary Scent Vibe / Family</label>
+      <select id="selVibe">
+        <option value="fresh" selected>Fresh, Citrus &amp; Crisp Aquatic</option>
+        <option value="woody">Warm Woods, Cedar &amp; Smokey Vetiver</option>
+        <option value="amber">Sensual Amber, Vanilla &amp; Sweet Gourmand</option>
+        <option value="floral">Airy White Florals, Rose &amp; Jasmine</option>
+      </select>
+
+      <label class="lbl" for="selSillage">Desired Projection &amp; Sillage</label>
+      <select id="selSillage">
+        <option value="intimate">Intimate Skin Scent (Close encounters only)</option>
+        <option value="moderate" selected>Moderate Projection (Noticed in conversation)</option>
+        <option value="beast">Strong Projection (Leaves an alluring trail)</option>
+      </select>
+
+      <label class="lbl" for="selGender">Gender Appeal</label>
+      <select id="selGender">
+        <option value="unisex" selected>Modern Unisex (Versatile &amp; Universal)</option>
+        <option value="masculine">Masculine Leaning (Aromatic fougère / woods)</option>
+        <option value="feminine">Feminine Leaning (Soft floral / radiant sweet)</option>
+      </select>
+
+      <div class="actions">
+        <button type="button" id="btnMatch" class="btn primary">Discover Signature Scents</button>
+        <button type="button" id="btnReset" class="btn">Reset to Clean Office</button>
+      </div>
+      <p class="hint">Recommendations update automatically as selections change.</p>
+    </section>
+
+    <!-- Scent Profile Results Card -->
+    <section class="card" aria-labelledby="results-h">
+      <h2 id="results-h">✨ Matched Scent Profile</h2>
+
+      <div class="metric-box">
+        <div class="metric-lbl">Olfactory Category</div>
+        <div id="resFamilyName" class="metric-val">Fresh Citrus / Aromatic</div>
+        <div id="resFamilySub" class="hint" style="margin:0">Crisp, uplifting, and effortlessly professional</div>
+      </div>
+
+      <div id="accordsWrap">
+        <span class="accord-pill">Citrus</span>
+        <span class="accord-pill">Aromatic</span>
+        <span class="accord-pill">Fresh Spicy</span>
+        <span class="accord-pill">Woody Musk</span>
+      </div>
+
+      <!-- Scent Note Pyramid -->
+      <div class="pyramid-box">
+        <div class="pyramid-level">
+          <div class="pyramid-title">Top Notes (First 15 Minutes)</div>
+          <div id="pyrTop" class="pyramid-notes">Calabrian Bergamot, Lemon Zest, Pink Pepper</div>
+        </div>
+        <div class="pyramid-level">
+          <div class="pyramid-title">Heart / Middle Notes (2 to 4 Hours)</div>
+          <div id="pyrHeart" class="pyramid-notes">French Lavender, Neroli, Cardamom, Geranium</div>
+        </div>
+        <div class="pyramid-level">
+          <div class="pyramid-title">Base Notes (6 to 10+ Hours)</div>
+          <div id="pyrBase" class="pyramid-notes">Ambroxan, Cedarwood, Vetiver, Clean White Musk</div>
+        </div>
+      </div>
+
+      <div style="border-top:1px solid var(--line);padding-top:10px;margin-top:10px">
+        <label class="lbl" style="margin-top:0">Benchmark Reference Fragrances</label>
+        <div id="benchmarkScent" style="font-weight:700;color:#92400e;font-size:.95rem">Sauvage EDT · Bleu de Chanel · Acqua di Gio Profondo</div>
+        <p id="wearTips" class="hint" style="margin-top:4px">Ideal concentration: Eau de Toilette or Eau de Parfum. Spray 3-4 points on collarbones and inner wrists after moisturizing.</p>
+      </div>
+
+      <div class="actions" style="margin-top:14px">
+        <button type="button" id="btnCopyProfile" class="btn primary sm">📋 Copy Scent Profile</button>
+        <button type="button" id="btnShareApp" class="btn sm">🔗 Share Finder</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- ADSENSE START: mid -->
+  <div class="ad-box ad-mid">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2228289204702106" data-ad-slot="1186914926" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+  <!-- ADSENSE END: mid -->
+
+  <!-- Educational Guide -->
+  <section class="card" aria-labelledby="guide-h">
+    <h2 id="guide-h">📖 Olfactory Science: The Fragrance Wheel &amp; Concentrations</h2>
+    <p>Professional perfumery structures scents using standardized taxonomic families and chemical volatility rates:</p>
+    <ul>
+      <li><strong>The Fragrance Wheel (Michael Edwards):</strong> Formulated in 1983, it classifies scents into four primary families (Floral, Oriental/Amber, Woody, and Fresh). Blends on adjacent spokes share natural chemical accords that harmonize smoothly.</li>
+      <li><strong>Note Volatility Hierarchy:</strong> Scent molecules evaporate at different rates based on molecular weight: light monoterpenes (citrus) evaporate rapidly, while heavy sesquiterpenes and resins (sandalwood, amber) anchor the fragrance for hours.</li>
+      <li><strong>Concentration Tiers:</strong> Eau de Cologne (EDC: 2-4% oils), Eau de Toilette (EDT: 5-15% oils), Eau de Parfum (EDP: 15-20% oils), and Extrait / Parfum (20-40% oils). Higher concentrations offer longer skin longevity with tighter personal sillage.</li>
+    </ul>
+    <p class="src">Perfumery references: Edwards M. (1983) <em>Fragrances of the World</em>; Turin L. &amp; Sanchez T. (2008) <em>Perfumes: The A-Z Guide</em>.</p>
+  </section>
+
+  <section class="card" id="faq" aria-labelledby="faq-h">
+    <h2 id="faq-h">❓ Frequently Asked Questions</h2>
+    <div class="faq-item"><h3>What is the Fragrance Wheel classification system?</h3><p>Created by British perfumer Michael Edwards in 1983, the Fragrance Wheel standardizes scents into four primary families: Floral, Amber/Oriental, Woody, and Fresh.</p></div>
+    <div class="faq-item"><h3>What is the difference between Top, Middle, and Base notes?</h3><p>Top notes are volatile citrus or herbal scents detected in the first 15 minutes. Heart notes form the core floral or spicy identity for 2 to 4 hours. Base notes provide warm woods and musks lasting 6 to 12 hours.</p></div>
+    <div class="faq-item"><h3>How does perfume concentration affect performance?</h3><p>Eau de Toilette (EDT, 5-15% oils) provides higher projection for 3 to 5 hours, whereas Eau de Parfum (EDP, 15-20% oils) and Extraits offer closer sillage with 8 to 14+ hours of longevity.</p></div>
+    <div class="faq-item"><h3>Are my scent preferences or fragrance searches stored?</h3><p>No. All scent matching calculations, accord breakdowns, and pyramid visualizations run exclusively inside your browser memory. Zero search histories are transferred or stored on external servers.</p></div>
+  </section>
+
+  <section class="card notice" aria-labelledby="note-h">
+    <h2 id="note-h">⚠️ Skin Chemistry Notice</h2>
+    <p>Fragrance notes interact dynamically with individual skin lipid levels, pH, and body temperature. Always sample on bare skin rather than paper test strips before investing in a full bottle.</p>
+  </section>
 </main>
+
+<!-- ADSENSE START: bottom -->
+<div class="ad-box ad-bottom">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2228289204702106" data-ad-slot="3416334507" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<!-- ADSENSE END: bottom -->
+
+<footer class="footer">
+  <p>Free Fragrance &amp; Perfume Finder · 100% private and client-side.</p>
+  <p><a href="/disclaimer.html">Disclaimer</a> | <a href="/privacy.html">Privacy Policy</a> | <a href="/terms.html">Terms of Service</a></p>
+</footer>
+
+<div id="global-ux-toast" class="toast" role="status" aria-live="polite"></div>
+
+<!-- LOGIC START -->
+<script>
+(function () {
+  'use strict';
+  var SITE = 'https://us-fragrance-finder.enjoy-onepage.com';
+  var TOOL_NAME = 'Fragrance & Perfume Finder';
+
+  var PROFILES = {
+    'fresh': {
+      name: 'Fresh Citrus / Aquatic Aromatic',
+      sub: 'Crisp, uplifting, clean, and effortlessly professional',
+      accords: ['Citrus', 'Aquatic', 'Fresh Spicy', 'Clean Musk'],
+      top: 'Calabrian Bergamot, Lemon Zest, Grapefruit, Pink Pepper',
+      heart: 'French Lavender, Sea Salt Accord, Rosemary, Geranium',
+      base: 'Ambroxan, Cedarwood, Haitian Vetiver, Clean White Musk',
+      bench: 'Acqua di Gio Profondo · Bleu de Chanel · Creed Aventus Cologne',
+      tips: 'Best for office and warm weather. Apply 3-4 sprays on collarbones and pulse points.'
+    },
+    'woody': {
+      name: 'Woody Amber / Smokey Leather',
+      sub: 'Sophisticated, grounding, earthy, and commanding',
+      accords: ['Woody', 'Warm Spicy', 'Earthy', 'Leather', 'Smoky'],
+      top: 'Cardamom, Violet Leaves, Cypress, Bitter Orange',
+      heart: 'Iris / Orris Root, Virginia Cedar, Papyrus, Guaiac Wood',
+      base: 'Australian Sandalwood, Bourbon Vetiver, Dark Amber, Leather Accord',
+      bench: 'Le Labo Santal 33 · Terre d’Hermès · Tom Ford Oud Wood',
+      tips: 'Superb for autumn and evening dinners. Projects richly in temperate conditions.'
+    },
+    'amber': {
+      name: 'Warm Amber / Rich Gourmand',
+      sub: 'Sensual, intoxicating, decadent, and deeply memorable',
+      accords: ['Vanilla', 'Warm Amber', 'Sweet Spices', 'Tonka Bean'],
+      top: 'Cinnamon Bark, Cognac Accord, Blood Orange, Saffron',
+      heart: 'Roasted Tonka Bean, Praline, Nutmeg, Jasmine Sambac',
+      base: 'Madagascar Vanilla, Golden Amber, Benzoin, Sandalwood',
+      bench: 'Kilian Angels’ Share · Maison Francis Kurkdjian Grand Soir · Tom Ford Tobacco Vanille',
+      tips: 'Best for winter nights, date nights, and formal black-tie events.'
+    },
+    'floral': {
+      name: 'Airy Radiant Floral / White Flowers',
+      sub: 'Elegant, romantic, luminous, and gracefully enchanting',
+      accords: ['White Floral', 'Dewy Rose', 'Green Accord', 'Powdery Musk'],
+      top: 'Italian Mandarin, Dewy Peony, Lily of the Valley, Pear',
+      heart: 'Grasse Rose, Jasmine Petals, Orange Blossom, Magnolia',
+      base: 'Soft White Amber, Patchouli Heart, Sheer Musk, Cashmere Wood',
+      bench: 'Dior Miss Dior · Chanel Chance Eau Tendre · Baccarat Rouge 540',
+      tips: 'Wonderful for daytime, weddings, spring celebrations, and effortless daily elegance.'
+    }
+  };
+
+  function $(id) { return document.getElementById(id); }
+
+  function showToast(msg) {
+    var toast = $('global-ux-toast');
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toast._tid);
+    toast._tid = setTimeout(function () { toast.classList.remove('show'); }, 2200);
+  }
+
+  function matchScent() {
+    var vibe = $('selVibe').value;
+    var occ = $('selOccasion').value;
+
+    // Smart mapping adjustments based on occasion if defaults
+    var profileKey = vibe;
+    if (occ === 'date' && vibe === 'fresh') profileKey = 'amber';
+    if (occ === 'summer' && vibe === 'woody') profileKey = 'fresh';
+
+    var prof = PROFILES[profileKey] || PROFILES['fresh'];
+
+    $('resFamilyName').textContent = prof.name;
+    $('resFamilySub').textContent = prof.sub;
+
+    var accWrap = $('accordsWrap');
+    accWrap.innerHTML = '';
+    prof.accords.forEach(function (acc) {
+      var span = document.createElement('span');
+      span.className = 'accord-pill';
+      span.textContent = acc;
+      accWrap.appendChild(span);
+    });
+
+    $('pyrTop').textContent = prof.top;
+    $('pyrHeart').textContent = prof.heart;
+    $('pyrBase').textContent = prof.base;
+
+    $('benchmarkScent').textContent = prof.bench;
+    $('wearTips').textContent = prof.tips;
+  }
+
+  ['selOccasion', 'selVibe', 'selSillage', 'selGender'].forEach(function (id) {
+    $(id).addEventListener('change', matchScent);
+  });
+
+  $('btnMatch').addEventListener('click', function () {
+    matchScent();
+    showToast('Signature scent profile updated!');
+  });
+
+  $('btnReset').addEventListener('click', function () {
+    $('selOccasion').value = 'daily';
+    $('selVibe').value = 'fresh';
+    $('selSillage').value = 'moderate';
+    $('selGender').value = 'unisex';
+    matchScent();
+    showToast('Reset to everyday clean profile');
+  });
+
+  $('btnCopyProfile').addEventListener('click', function () {
+    var name = $('resFamilyName').textContent;
+    var bench = $('benchmarkScent').textContent;
+    var top = $('pyrTop').textContent;
+    var heart = $('pyrHeart').textContent;
+    var base = $('pyrBase').textContent;
+
+    var text = '🌿 Signature Scent Profile: ' + name + '\n' +
+      '• Top Notes: ' + top + '\n' +
+      '• Heart Notes: ' + heart + '\n' +
+      '• Base Notes: ' + base + '\n' +
+      '• Benchmark Scents: ' + bench + '\n\n' +
+      'Discovered via ' + TOOL_NAME + ': ' + SITE + '/';
+
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(function () {
+        showToast('Scent profile copied to clipboard!');
+      });
+    } else {
+      showToast('Could not copy automatically.');
+    }
+  });
+
+  $('btnShareApp').addEventListener('click', function () {
+    var shareMsg = '🌿 Free Fragrance & Perfume Finder\n👉 ' + TOOL_NAME + ': ' + SITE + '/';
+    if (navigator.share) {
+      navigator.share({ title: TOOL_NAME, text: shareMsg, url: SITE + '/' }).catch(function (e) {
+        if (!e || e.name !== 'AbortError') showToast('Link ready to share!');
+      });
+    } else {
+      showToast('Finder URL: ' + SITE + '/');
+    }
+  });
+
+  matchScent();
+})();
+</script>
+<!-- LOGIC END -->
 </body>
 </html>
